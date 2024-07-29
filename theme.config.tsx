@@ -3,7 +3,7 @@ import type { DocsThemeConfig } from 'nextra-theme-docs';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import React from 'react';
 const config: DocsThemeConfig = {
-  logo: <span className="text-2xl font-extrabold">NerdyDocs</span>,
+  logo: <span className="text-2xl font-bold ">NerdyDocs</span>,
   project: {
     link: 'https://github.com/NerdyNarayan/NerdyDocs'
   },

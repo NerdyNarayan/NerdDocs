@@ -9,12 +9,10 @@ const Hero: FC = () => {
   return (
     <main className="flex h-screen items-center justify-center">
       <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-        <h1 className="text-accent-foreground text-8xl font-bold">
-          {SiteConfig.name}
-        </h1>
-        <p className="text-2xl text-primary/80">{SiteConfig.description}</p>
+        <h1 className="text-8xl font-bold text-secondary">{SiteConfig.name}</h1>
+        <p className="text-2xl text-secondary/80">{SiteConfig.description}</p>
         <a
-          className="text-primary underline"
+          className=" underline"
           href={SiteConfig.links.github}
           rel="noopener noreferrer"
           target="_blank"
