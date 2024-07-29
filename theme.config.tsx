@@ -8,7 +8,7 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/NerdyNarayan/NerdyDocs'
   },
 
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/NerdyNarayan/NerdyDocs',
   footer: {
     text: 'NerdyDocs'
   },
