@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: var(--font-sans) !important;
+  }
+
+  article,
+  main {
+    overflow: visible !important;
+  }
+
+  :root {
+    --shiki-color-text: #CDD6F4; /* Mocha text color */
+    --shiki-color-background: transparent; /* Keeping background transparent */
+    --shiki-token-constant: #89B4FA; /* Mocha blue */
+    --shiki-token-string: #A6E3A1; /* Mocha green */
+    --shiki-token-comment: #6C7086; /* Mocha muted comment color */
+    --shiki-token-keyword: #F38BA8; /* Mocha red */
+    --shiki-token-parameter: #FAB387; /* Mocha peach */
+    --shiki-token-function: #DDB6F2; /* Mocha lavender */
+    --shiki-token-string-expression: #A6E3A1; /* Mocha green */
+    --shiki-token-punctuation: #BAC2DE; /* Mocha subtle color */
+    --shiki-token-link: #89DCEB; /* Mocha teal */
+  }
+  
+  .dark {
+    --shiki-color-text: #CDD6F4; /* Mocha text color */
+    --shiki-token-constant: #89B4FA; /* Mocha blue */
+    --shiki-token-string: #F2CDCD; /* Mocha pink */
+    --shiki-token-comment: #6C7086; /* Mocha muted comment color */
+    --shiki-token-keyword: #F38BA8; /* Mocha red */
+    --shiki-token-parameter: #FAB387; /* Mocha peach */
+    --shiki-token-function: #DDB6F2; /* Mocha lavender */
+    --shiki-token-string-expression: #A6E3A1; /* Mocha green */
+    --shiki-token-punctuation: #BAC2DE; /* Mocha subtle color */
+    --shiki-token-link: #F2CDCD; /* Mocha pink */
+  }
+  
+  .dark body {
+    background: #000 !important;
+  }
+
+  .dark .nextra-nav-container .nextra-nav-container-blur {
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .dark .dark\:nx-bg-dark {
+    background-color: #000 !important;
+    box-shadow: none !important;
+  }
+
+  .dark footer {
+    background-color: #000 !important;
+  }
+
+  .dark .dark\:nx-text-slate-100 {
+    color: rgba(241, 245, 249, 1) !important;
+  }
+
+  .dark .nextra-content {
+    color: rgba(241, 245, 249, 0.85) !important;
+  }
+
+  .dark code .line.highlighted {
+    background-color: hsl(var(--nextra-primary-hue) 100% 45%/0.2) !important;
+  }
+
+  .dark code .line .highlighted {
+    --tw-shadow-color: hsl(var(--nextra-primary-hue) 100% 45%/0.3) !important;
+    background-color: hsl(var(--nextra-primary-hue) 100% 45%/0.3) !important;
+  }
+  pre {
+    border: 1px solid rgb(136 144 150 / 0.2) !important;
+    background-color: transparent !important;
+  }
+}
+
+.dragging-ew {
+  user-select: none !important;
+  cursor: ew-resize !important;
+}
+
+.dragging-ew * {
+  user-select: none !important;
+  cursor: ew-resize !important;
+}
