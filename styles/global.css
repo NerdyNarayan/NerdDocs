@@ -70,40 +70,44 @@
   --shiki-token-punctuation: #bbbbbb;
   --shiki-token-link: #ffab70;
 }
+*{
+  font-family: 'Inter', sans-serif;
+  line-height: 1.76rem;
+}
+
+p {
+  color:rgba(241, 245, 249, 100) ;
+}
+
+blockquote p {
+  color:var(--muted-foreground);
+}
 .dark a {
   color: #cba6f7;
   text-decoration: none;
 }
+
 .dark a:hover {
   color: #a987d3;
-}
-.dark body {
-  background: #000 !important;
+  text-decoration: underline;
 }
 
 ul li input{
-   /* Add if not using autoprefixer */
    -webkit-appearance: none;
    appearance: none;
-   /* For iOS < 15 to remove gradient background */
    background-color: #1e1e2e;
   width: 1.15em;
   height: 1.15em;
   
 }
-
 .dark .nextra-nav-container .nextra-nav-container-blur {
   box-shadow: none !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
 }
-
 .dark .dark\:nx-bg-dark {
-  background-color: #000 !important;
   box-shadow: none !important;
 }
 
 .dark footer {
-  background-color: #000 !important;
 }
 
 .dark .dark\:nx-text-slate-100 {
@@ -115,7 +119,7 @@ ul li input{
 }
 
 .dark code .line.highlighted {
-  background-color: hsl(var(--nextra-primary-hue) 100% 45%/0.2) !important;
+  background-color: rgb(136 144 150 / 0.2) !important;
 }
 
 .dark code .line .highlighted {
@@ -127,7 +131,6 @@ pre {
   background-color: transparent !important;
 
 }
-
 .dragging-ew {
 user-select: none !important;
 cursor: ew-resize !important;

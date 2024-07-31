@@ -1,9 +1,12 @@
-import type { DocsThemeConfig } from 'nextra-theme-docs';
-
+import { type DocsThemeConfig } from 'nextra-theme-docs';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import React from 'react';
+
 const config: DocsThemeConfig = {
   logo: <span className="text-2xl font-bold ">NerdyDocs</span>,
+  sidebar: {
+    toggleButton: true
+  },
   project: {
     link: 'https://github.com/NerdyNarayan/NerdyDocs'
   },
@@ -12,10 +15,12 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'NerdyDocs'
   },
+
   chat: {
     icon: <RiAccountCircleFill className="rounded-full text-3xl" />,
     link: 'https://link-hub-chi.vercel.app/'
   },
+
   toc: {
     backToTop: true
   }

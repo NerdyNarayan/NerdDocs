@@ -17,10 +17,6 @@ const sans = Inter({
   adjustFontFallback: true,
   display: 'optional',
   fallback: [
-    'ui-sans-serif',
-    'system-ui',
-    '-apple-system',
-    'BlinkMacSystemFont',
     '"Segoe UI"',
     'Roboto',
     '"Helvetica Neue"',

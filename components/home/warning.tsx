@@ -4,7 +4,7 @@ import React, { type FC } from 'react';
 
 const Warning: FC = () => {
   return (
-    <div className="items-center  rounded-xl border-2  px-2 py-1 text-purple-500 dark:text-purple-300 ">
+    <div className="mb-4  mt-4 items-center rounded-xl border-2  px-2 py-1 text-purple-500 dark:text-purple-300 ">
       <span>
         &quot;This guide is a work in progress. If you have any suggestions,
         please feel free to contact me on

@@ -1,17 +1,16 @@
 {
-  "name": "tailwind-variants-docs",
+  "name": "NerdDocs",
   "private": true,
   "license": "MIT",
   "version": "0.0.1",
-  "description": "Tailwind variants documentation site",
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://github.com/nextui-org/tailwind-variants-docs#readme",
+  "description": "Doc and guides for nerds",
+  "homepage": "https://github.com/NerdyNarayan/NerdDocs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/tailwind-variants-docs.git"
+    "url": "git+https://github.com/NerdyNarayan/NerdDocs.git"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/tailwind-variants-docs/issues"
+    "url": "https://github.com/NerdyNarayan/NerdDocs/issues"
   },
   "scripts": {
     "dev": "next dev",
@@ -24,6 +23,7 @@
   },
   "dependencies": {
     "@radix-ui/react-icons": "1.3.0",
+    "@radix-ui/react-slot": "1.1.0",
     "@react-aria/interactions": "3.17.0",
     "@react-aria/radio": "3.7.0",
     "@react-aria/ssr": "3.7.1",
@@ -36,7 +36,9 @@
     "classnames": "2.3.2",
     "clsx": "2.0.0",
     "framer-motion": "10.16.2",
+    "geist": "1.3.1",
     "next": "13.4.19",
+    "next-themes": "0.3.0",
     "nextra": "2.12.3",
     "nextra-theme-docs": "2.12.3",
     "react": "18.2.0",
