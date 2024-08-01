@@ -3,15 +3,16 @@ import { RiAccountCircleFill } from 'react-icons/ri';
 import React from 'react';
 
 const config: DocsThemeConfig = {
-  logo: <span className="text-2xl font-bold ">NerdyDocs</span>,
+  logo: <span className="text-2xl font-bold  ">NerdDocs</span>,
+  primaryHue: 180,
   sidebar: {
     toggleButton: true
   },
   project: {
-    link: 'https://github.com/NerdyNarayan/NerdyDocs'
+    link: 'https://github.com/NerdyNarayan/NerdDocs'
   },
 
-  docsRepositoryBase: 'https://github.com/NerdyNarayan/NerdyDocs',
+  docsRepositoryBase: 'https://github.com/NerdyNarayan/NerdDocs',
   footer: {
     text: 'NerdyDocs'
   },

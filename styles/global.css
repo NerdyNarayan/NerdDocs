@@ -75,7 +75,7 @@
   line-height: 1.76rem;
 }
 
-p {
+.dark p {
   color:rgba(241, 245, 249, 100) ;
 }
 
@@ -107,8 +107,6 @@ ul li input{
   box-shadow: none !important;
 }
 
-.dark footer {
-}
 
 .dark .dark\:nx-text-slate-100 {
   color: rgba(241, 245, 249, 1) !important;
