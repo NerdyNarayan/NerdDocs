@@ -3,12 +3,13 @@
     "title": "Home",
     "display": "hidden"
   },
-  "docs": {
-    "title": "Docs",
-    "theme": {
-      "toc": true
-    }
-  },
+ "BCA":{
+  "title":"BCA",
+  "type":"page",
+  "theme":{
+    "toc":true
+  }},
+ 
   "projects":{
     "title": "Projects",
     "theme": {
