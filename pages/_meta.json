@@ -12,17 +12,20 @@
  
   "projects":{
     "title": "Projects",
+    "type": "page",
     "theme": {
       "toc": true
     }
   },
   "resources": {
+    "type": "page",
     "title": "Resources",
     "theme": {
       "toc": true
     }
   },
   "about": {
+    "type": "page",
     "title": "About",
     "theme": {
       "toc": true
