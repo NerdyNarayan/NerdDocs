@@ -1,5 +1,5 @@
 export const SiteConfig = {
-  name: 'NerdyDocs',
+  name: 'NerdDocs',
   description: 'Docs and guides for nerds.',
   links: {
     github: 'https://github.com/NerdyNarayan/NerdDocs'
