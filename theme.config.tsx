@@ -4,7 +4,7 @@ import React from 'react';
 
 const config: DocsThemeConfig = {
   logo: <span className="text-2xl font-bold  ">NerdDocs</span>,
-  primaryHue: 180,
+  primaryHue: 200,
   sidebar: {
     toggleButton: true
   },
