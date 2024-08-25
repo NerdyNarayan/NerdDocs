@@ -1,0 +1,566 @@
+
+# Golang packages
+## fmt
+
+- **Description**:
+  - The `fmt` package implements formatted I/O with functions similar to C's `printf` and `scanf`. It provides formatted printing for Go values and is a staple for outputting text and other data to the console.
+
+- **Common Use Cases**:
+  - Displaying formatted output to the console.
+  - Scanning input from various sources.
+  - Debugging by printing variable values during development.
+
+- **Package Link**: [fmt - GoDoc](https://pkg.go.dev/fmt)
+
+- **Key Features**:
+  - **Formatted Printing**: Functions like `Println`, `Printf`, and `Sprintf` for various formats.
+  - **Input Scanning**: Functions like `Scanf`, `Scanln`, and `Scan` to parse user input.
+  - **Custom Formatting**: Supports custom format specifiers for different data types, including `%v`, `%T`, and `%#v`.
+
+- **Example**:
+  ```go
+  package main
+
+  import "fmt"
+
+  func main() {
+      name := "Go"
+      version := 1.20
+      fmt.Printf("Welcome to %s version %.2f!\n", name, version)
+  }```
+## net/http
+
+- **Description**:
+  - The `net/http` package provides HTTP client and server implementations in Go. It allows for sending and receiving HTTP requests, as well as creating HTTP servers.
+
+- **Common Use Cases**:
+  - Creating web servers and handling HTTP requests.
+  - Sending HTTP requests to external APIs or web services.
+  - Handling HTTP responses and parsing JSON data.
+
+- **Package Link**: [net/http - GoDoc](https://pkg.go.dev/net/http)
+
+- **Key Features**:
+  - **HTTP Client**: Functions like `Get`, `Post`, and `PostForm` for sending HTTP requests.
+  - **HTTP Server**: Functions like `ListenAndServe` and `Serve` for creating HTTP servers.
+  - **Request and Response**: Structures like `Request` and `Response` for handling HTTP requests and responses.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "net/http"
+  )
+
+  func main() {
+      http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+          fmt.Fprint(w, "Hello, World!")
+      })
+      http.ListenAndServe(":8080", nil)
+  }
+  ```
+
+## strconv
+
+- **Description**:
+  - The `strconv` package provides functions for converting between strings and numeric values.
+
+- **Common Use Cases**:
+  - Converting user input from strings to integers or floats.
+  - Parsing numeric values from configuration files or databases.
+  - Formatting numeric values as strings for output.
+
+- **Package Link**: [strconv - GoDoc](https://pkg.go.dev/strconv)
+
+- **Key Features**:
+  - **String to Number**: Functions like `Atoi` and `ParseFloat` for converting strings to numbers.
+  - **Number to String**: Functions like `Itoa` and `FormatFloat` for converting numbers to strings.
+  - **Error Handling**: Functions like `ParseInt` and `ParseUint` that return errors on failure.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "strconv"
+  )
+
+  func main() {
+      str := "123"
+      num, err := strconv.Atoi(str)
+      if err != nil {
+          fmt.Println(err)
+      } else {
+          fmt.Println(num)
+      }
+  }
+  ```
+
+## log
+
+- **Description**:
+  - The `log` package provides a simple logging mechanism for Go programs.
+
+- **Common Use Cases**:
+  - Logging debug messages during development.
+  - Recording errors and exceptions in production environments.
+  - Auditing user actions and system events.
+
+- **Package Link**: [log - GoDoc](https://pkg.go.dev/log)
+
+- **Key Features**:
+  - **Logging**: Functions like `Print`, `Printf`, and `Println` for logging messages.
+  - **Error Handling**: Functions like `Fatal` and `Panic` for logging fatal errors.
+  - **Output Control**: Functions like `SetOutput` and `SetFlags` for customizing log output.
+
+- **Example**:
+  ```go
+  package main
+
+  import "log"
+
+  func main() {
+      log.Println("This is a log message")
+      log.Printf("Logging with format string: %s", "example")
+  }
+  ```
+
+## encoding/json
+
+- **Description**:
+  - The `encoding/json` package provides functions for encoding and decoding JSON data in Go.
+
+- **Common Use Cases**:
+  - Encoding Go structs as JSON data for API responses.
+  - Decoding JSON data from API requests or files.
+  - Working with JSON configuration files or data stores.
+
+- **Package Link**: [encoding/json - GoDoc](https://pkg.go.dev/encoding/json)
+
+- **Key Features**:
+  - **JSON Encoding**: Functions like `Marshal` and `Encode` for encoding Go structs as JSON.
+  - **JSON Decoding**: Functions like `Unmarshal` and `Decode` for decoding JSON data into Go structs.
+  - **Custom Marshaling**: Support for custom marshaling and unmarshaling using the `json.Marshaler` and `json.Unmarshaler` interfaces.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "encoding/json"
+      "fmt"
+  )
+
+  type Person struct {
+      Name  string
+      Age   int
+  }
+
+  func main() {
+      p := Person{"John", 30}
+      json, err := json.Marshal(p)
+      if err != nil {
+          fmt.Println(err)
+      } else {
+          fmt.Println(string(json))
+      }
+
+
+  }
+
+  ```
+
+use with net/http
+```go
+func addProduct(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var product Product
+	_ = json.NewDecoder(r.Body).Decode(&product)
+	product.ID = strconv.Itoa(rand.Intn(10000))
+	products = append(products, product)
+	json.NewEncoder(w).Encode(product)
+}
+```
+## math/rand
+
+- **Description**:
+  - The `math/rand` package provides functions for generating random numbers in Go.
+
+- **Common Use Cases**:
+  - Generating random numbers for simulations or games.
+  - Creating unique identifiers or tokens.
+  - Shuffling data or arrays.
+
+- **Package Link**: [math/rand - GoDoc](https://pkg.go.dev/math/rand)
+
+- **Key Features**:
+  - **Random Number Generation**: Functions like `Int`, `Intn`, and `Float64` for generating random numbers.
+  - **Seeding**: Support for seeding the random number generator using the `Seed` function.
+  - **Shuffling**: Function like `Shuffle` for shuffling slices of integers.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "math/rand"
+      "time"
+  )
+
+  func main() {
+      rand.Seed(time.Now().UnixNano())
+      num := rand.Intn(100)
+      fmt.Println("Random number:", num)
+
+  }
+  ```
+  Here's the markdown entry for the `gorilla/mux` package:
+
+## `gorilla/mux`
+
+- **Description**:
+  - The `gorilla/mux` package is a powerful HTTP router and URL matcher for building robust and scalable web applications in Go. It provides more advanced routing capabilities compared to the standard `net/http` package, allowing for complex route patterns and request handling.
+
+- **Common Use Cases**:
+  - Creating RESTful APIs with complex routing needs.
+  - Handling requests based on HTTP methods, URL schemes, and query parameters.
+  - Defining subrouters for modular route handling.
+
+- **Package Link**: [gorilla/mux - GitHub](https://github.com/gorilla/mux)
+
+- **Key Features**:
+  - **Advanced Routing**: Supports route variables, wildcards, and regular expressions in URL paths.
+  - **Middleware Support**: Easily integrates middleware functions for tasks like logging, authentication, and CORS.
+  - **Subrouters**: Allows for grouping routes by common prefixes or specific conditions.
+  - **Reverse Routing**: Provides the ability to build URLs based on route names and parameters, making URL management easier.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "net/http"
+      "github.com/gorilla/mux"
+  )
+
+  func main() {
+      r := mux.NewRouter()
+
+      r.HandleFunc("/products/{id}", func(w http.ResponseWriter, r *http.Request) {
+          vars := mux.Vars(r)
+          productID := vars["id"]
+          fmt.Fprintf(w, "Product ID: %s\n", productID)
+      })
+
+      http.ListenAndServe(":8080", r)
+  }
+  ```
+
+
+
+## `gorm.io/gorm`
+
+- **Description**:
+  - The `gorm` package is a powerful ORM (Object-Relational Mapping) library for Go, designed to simplify database interactions by allowing developers to work with database records as Go objects. It supports a wide range of databases and provides advanced features like associations, hooks, and migrations.
+
+- **Common Use Cases**:
+  - Managing database operations (CRUD) using Go structs.
+  - Defining and handling complex database relationships (e.g., one-to-one, one-to-many, many-to-many).
+  - Automatically migrating database schemas.
+  - Writing database-agnostic queries.
+
+- **Package Link**: [gorm.io/gorm - GoDoc](https://pkg.go.dev/gorm.io/gorm)
+
+- **Key Features**:
+  - **ORM Capabilities**: Map Go structs to database tables, and use methods like `Create`, `First`, `Save`, and `Delete` for CRUD operations.
+  - **Associations**: Handle complex relationships with `Has One`, `Has Many`, `Belongs To`, and `Many To Many`.
+  - **Migrations**: Automatically generate and run migrations to keep your database schema in sync with your Go structs.
+  - **Advanced Queries**: Support for transactions, batch operations, raw SQL, and SQL builder.
+  - **Hooks**: Define hooks for actions like `BeforeCreate`, `AfterCreate`, `BeforeUpdate`, etc., to trigger custom logic during lifecycle events.
+
+- **Example**:
+  ```go
+package main
+
+import (
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
+)
+
+type Product struct {
+    ID    uint   `gorm:"primaryKey"`
+    Name  string `gorm:"size:255"`
+    Price float64
+}
+
+func main() {
+    dsn := "host=localhost user=your_user password=your_password dbname=your_db port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+    if err != nil {
+        panic("failed to connect database")
+    }
+
+    // Migrate the schema
+    db.AutoMigrate(&Product{})
+
+    // Create
+    db.Create(&Product{Name: "Laptop", Price: 1499.99})
+
+    // Read
+    var product Product
+    db.First(&product, 1) // Find product with ID 1
+    db.First(&product, "name = ?", "Laptop") // Find product with name "Laptop"
+
+    // Update
+    db.Model(&product).Update("Price", 1299.99)
+
+    // Delete
+    db.Delete(&product, 1)
+}
+
+```
+
+## `github.com/joho/godotenv`
+
+- **Description**:
+  - The `godotenv` package is a simple library for loading environment variables from a `.env` file into your Go application. It helps manage configuration by allowing you to store environment-specific settings outside of your codebase.
+
+- **Common Use Cases**:
+  - Managing environment variables in development, staging, and production environments.
+  - Simplifying the configuration process by using `.env` files.
+  - Loading environment variables at runtime without hardcoding sensitive information.
+
+- **Package Link**: [godotenv - GitHub](https://github.com/joho/godotenv)
+
+- **Key Features**:
+  - **Load Environment Variables**: Easily load environment variables from a `.env` file with functions like `Load` and `Overload`.
+  - **Override Existing Variables**: Choose whether to override existing environment variables in the runtime environment.
+  - **Flexible Loading**: Load multiple `.env` files or files from different directories.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "log"
+      "os"
+
+      "github.com/joho/godotenv"
+  )
+
+  func main() {
+      err := godotenv.Load()
+      if err != nil {
+          log.Fatal("Error loading .env file")
+      }
+
+      dbHost := os.Getenv("DB_HOST")
+      fmt.Println("Database Host:", dbHost)
+  }
+  ```
+
+- **Configuration Notes**:
+  - Create a `.env` file in your project root with key-value pairs, like `DB_HOST=localhost`, and load them using `godotenv`.
+
+---
+
+## `github.com/golang-jwt/jwt/v4`
+
+- **Description**:
+  - The `golang-jwt/jwt` package is a Go implementation of JSON Web Tokens (JWT). It allows for secure transmission of information between parties as a JSON object, particularly useful for authentication and authorization mechanisms in web applications.
+
+- **Common Use Cases**:
+  - Implementing user authentication by issuing and verifying JWTs.
+  - Securing API endpoints by validating JWTs in requests.
+  - Encoding user information and permissions within tokens.
+
+- **Package Link**: [golang-jwt/jwt - GitHub](https://github.com/golang-jwt/jwt)
+
+- **Key Features**:
+  - **Token Creation**: Create JWTs with custom claims, including standard claims like `exp` (expiration) and `iat` (issued at).
+  - **Token Signing**: Sign tokens using various algorithms like `HS256` (HMAC) or `RS256` (RSA).
+  - **Token Verification**: Validate and parse tokens to ensure their authenticity and integrity.
+  - **Custom Claims**: Define custom claims to store user-specific information within tokens.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "github.com/golang-jwt/jwt/v4"
+      "time"
+  )
+
+  var mySigningKey = []byte("secret")
+
+  func main() {
+      // Create a new token object
+      token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+          "username": "nerdynarayan",
+          "exp":      time.Now().Add(time.Hour * 24).Unix(),
+      })
+
+      // Sign the token with our secret
+      tokenString, err := token.SignedString(mySigningKey)
+      if err != nil {
+          panic(err)
+      }
+
+      fmt.Println("Generated Token:", tokenString)
+
+      // Parse and validate the token
+      parsedToken, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+          return mySigningKey, nil
+      })
+
+      if claims, ok := parsedToken.Claims.(jwt.MapClaims); ok && parsedToken.Valid {
+          fmt.Println("Username:", claims["username"])
+      } else {
+          fmt.Println("Invalid token:", err)
+      }
+  }
+  ```
+
+- **Configuration Notes**:
+  - Replace `"secret"` with a more secure key for production environments.
+  - Handle errors and edge cases appropriately, such as expired tokens and invalid signatures.
+
+
+## `golang.org/x/crypto/bcrypt`
+
+- **Description**:
+  - The `bcrypt` package, part of the `golang.org/x/crypto` library, provides an implementation of the bcrypt password hashing algorithm. It’s widely used for securely hashing and storing passwords, offering a high level of security through key stretching.
+
+- **Common Use Cases**:
+  - Hashing passwords before storing them in a database.
+  - Comparing hashed passwords during user authentication.
+  - Protecting sensitive data through secure hashing.
+
+- **Package Link**: [golang.org/x/crypto/bcrypt - GoDoc](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
+
+- **Key Features**:
+  - **Password Hashing**: The `GenerateFromPassword` function hashes a password using a given cost factor.
+  - **Password Comparison**: The `CompareHashAndPassword` function safely compares a hashed password with its plain-text version.
+  - **Cost Factor**: Adjustable cost factor to control the computational complexity and security level of the hashing.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "fmt"
+      "golang.org/x/crypto/bcrypt"
+  )
+
+  func main() {
+      password := []byte("supersecret")
+
+      // Hashing the password
+      hash, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
+      if err != nil {
+          panic(err)
+      }
+      fmt.Println("Hashed password:", string(hash))
+
+      // Comparing the password with its hash
+      err = bcrypt.CompareHashAndPassword(hash, password)
+      if err != nil {
+          fmt.Println("Password mismatch!")
+      } else {
+          fmt.Println("Password match!")
+      }
+  }
+  ```
+
+## `github.com/githubnemo/CompileDaemon`
+
+- **Description**:
+  - The `CompileDaemon` package is a development tool that automatically recompiles and restarts your Go application whenever it detects changes in the source code. It's useful for rapid development and testing, reducing the need to manually recompile and restart the application.
+
+- **Common Use Cases**:
+  - Automatically reloading a Go application during development.
+  - Speeding up the development workflow by automating the recompile process.
+  - Continuous development and testing with immediate feedback on code changes.
+
+- **Package Link**: [github.com/githubnemo/CompileDaemon - GitHub](https://github.com/githubnemo/CompileDaemon)
+
+- **Key Features**:
+  - **Automatic Recompilation**: Monitors file changes and recompiles the Go application as needed.
+  - **Automatic Restart**: Restarts the application after recompiling, ensuring the latest changes are reflected immediately.
+  - **Customizable Options**: Allows specifying which files or directories to watch, commands to run on changes, and more.
+
+- **Example**:
+  ```bash
+  # Run CompileDaemon to watch the current directory
+  CompileDaemon --build="go build -o myapp" --command=./myapp
+  ```
+
+- **Installation**:
+  - Install `CompileDaemon` using `go install`:
+    ```bash
+    go install github.com/githubnemo/CompileDaemon@latest
+    ```
+
+## `github.com/gin-gonic/gin`
+
+- **Description**:
+  - The `gin-gonic/gin` package is a high-performance HTTP web framework for Go. It’s known for its speed and small memory footprint, making it ideal for building fast and scalable web applications and APIs. Gin offers a robust set of features while maintaining a minimalistic API, allowing developers to quickly develop web services with powerful routing, middleware support, and more.
+
+- **Common Use Cases**:
+  - Building RESTful APIs and web services.
+  - Creating high-performance web applications.
+  - Managing complex routing, including route groups and parameterized routes.
+  - Integrating middleware for tasks like logging, authentication, and request validation.
+
+- **Package Link**: [github.com/gin-gonic/gin - GitHub](https://github.com/gin-gonic/gin)
+
+- **Key Features**:
+  - **Fast Routing**: Efficient HTTP router with support for parameters, grouping, and wildcards.
+  - **Middleware Support**: Easily add custom or built-in middleware for request handling, logging, error recovery, and more.
+  - **JSON Handling**: Simple and efficient JSON rendering and parsing.
+  - **Error Management**: Built-in error handling and recovery from panics.
+  - **Testing Support**: Facilitates easy testing of routes and handlers.
+
+- **Example**:
+  ```go
+  package main
+
+  import (
+      "github.com/gin-gonic/gin"
+      "net/http"
+  )
+
+  func main() {
+      r := gin.Default()
+
+      // Define a route
+      r.GET("/ping", func(c *gin.Context) {
+          c.JSON(http.StatusOK, gin.H{
+              "message": "pong",
+          })
+      })
+
+      // Define a route with a parameter
+      r.GET("/user/:name", func(c *gin.Context) {
+          name := c.Param("name")
+          c.JSON(http.StatusOK, gin.H{
+              "user": name,
+          })
+      })
+
+      // Start the server on port 8080
+      r.Run(":8080")
+  }
+  ```
+
+- **Configuration Notes**:
+  - `gin.Default()` sets up a Gin router with logging and recovery middleware by default.
+  - Routes are defined using HTTP methods like `GET`, `POST`, `PUT`, `DELETE`, etc.
+  - Middleware can be applied globally or to specific route groups.
