@@ -3,30 +3,17 @@
     "title": "",
     "display": "hidden"
   },
- "BCA":{
-  "title":"BCA",
-  "type":"page",
-  "theme":{
-    "toc":true
-  }},
- 
-  "projects":{
-    "title": "Projects",
+  "BCA": {
+    "title": "BCA",
     "type": "page",
     "theme": {
       "toc": true
     }
   },
+
   "resources": {
     "type": "page",
     "title": "Resources",
-    "theme": {
-      "toc": true
-    }
-  },
-  "about": {
-    "type": "page",
-    "title": "About",
     "theme": {
       "toc": true
     }

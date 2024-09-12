@@ -4,20 +4,21 @@
     "description": "A collection of resources to help you get started with your project."
   },
   "Data-Structure-And-Algorithm": {
-    "title":"Data Structure and Algorithm",
-    "description":"Resources for data structure and algorithm"
+    "title": "Data Structure and Algorithm",
+    "description": "Resources for data structure and algorithm"
   },
-  
-    "Machine-Learning":{
-      "title":"Machine Learning",
-      "description":"Resources for Machine Learning"
-    },
-    "Golang":{
-      "title":"Golang",
 
-      "description":"Resources for Golang"
-    }
-  
+  "Machine-Learning": {
+    "title": "Machine Learning",
+    "description": "Resources for Machine Learning"
+  },
+  "Golang": {
+    "title": "Golang",
 
-  
+    "description": "Resources for Golang"
+  },
+  "Web-Development": {
+    "title": "Web Development",
+    "description": "Resources for Web Development"
+  }
 }
